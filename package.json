@@ -1,0 +1,19 @@
+{
+  "name": "login",
+  "version": "1.0.0",
+  "description": "login form",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jquery",
+    "login",
+    "form"
+  ],
+  "author": "k cassidy",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}
