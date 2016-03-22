@@ -12,7 +12,7 @@ var emailPattern = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
 login.on('submit', function(e){
 	e.preventDefault();
 	//check for empty email field and proper email address. indexOf will not catch "@bob$" or "bob@smith"
-	if((userName==='')||(userName.indexOf('@')===-1)) {
+	if((!$('.username').val())||($('.username').val().indexOf('@')===-1)) {
         alert("Please enter a valid email address before logging in.");
         return;	
      }
