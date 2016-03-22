@@ -3,77 +3,59 @@
 // var emailRegex = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
 var login = $('.login-form');
 // var tiyUrl = 'http://* theironyard.com';//or
-//window.replace('http://* theironyard.com', url)//$(location).attr('href','http://* theironyard.com');
-//************************************//
-//           USERNAME                 //
-//************************************//
-//user enters his/her email address
-//1 program checks to see if it's an email address we have
-//2 if they try to leave it empty: 
-//	Please enter an email address before logging in.
-//3in this situation, compares to two names. 
-//4enter will take to the next field?
-// password
-
-
+var userName = $('.username').val();
+var password = $('.password').val();
+var emailPattern = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
 //target form 
+
+
 login.on('submit', function(e){
 	e.preventDefault();
-	var userName = $('.username').val();
-	var password = $('.password').val();
+	//check for empty email field and proper email address. indexOf will not catch "@bob$" or "bob@smith"
+	if((userName==='')||(userName.indexOf('@')===-1)) {
+        alert("Please enter a valid email address before logging in.");
+        return;	
+     }
+      //i get alert anyway no matter what I do. I cannot find my error. and i can't go further.
+     //stopping here so i can start contact form
 
-	if((userName==='')||(userName.indexOf('@')===-1)){
-		alert("Please enter an email address before logging in.");
-	 }
-	 else if(password==='') {
-	 alert("Please enter your password.");
-	 }
+	//empty password (but it was not letting any valid ones through)
+	else if (password==='') {
+	alert("Please enter your password.");
+	}
+	else if (isUserValid(userName)===true){
+	 	$(location).attr('href','http://www.theironyard.com');
+	}
 });
-	 // else{//tar	get each field indiv
-	 	// if((userName==='aaron@theironyard.com')&&(userName==='password123')){
-	 	// 	$(location).attr('href','http://www.theironyard.com');
-	 	// }
-	 	// else if ((userName==='aaron@theironyard.com')&&(userName!=='password123')){
-	 	// 	alert('The password you entered is incorrect.');
-	 	// }
-	 	// else if ((userName!=='aaron@theironyard.com')&&(userName==='password123')){
-	 	// 	alert('The username you entered is invalid.');
-	 	// }
-	 	// else if((userName==='admid@google.com')&&(userName==='pandas')){
-	 	// 	$(location).attr('href','http://* theironyard.com');
-	 	// }
-	 	// else if ((userName==='admin@google.com')&&(userName!=='pandas')){
-	 	// 	alert('The password you entered is incorrect.');
-	 	// }
-	 	// else if ((userName!=='admin@google.com')&&(userName==='pandas')){
-	 	// 	alert('The username you entered is invalid.');
-	 	// }
-	 	// else {
-	 	// 	alert('We have no record of this user.');
-	 	// }
-	 // }
-// });
-///OR (BECAUSE THAT SEEMS TO WORDY)
-function isUserValid(userName){
-	if((username==='aaron@theironyard.com')||(userName==='admin@google.com')){
+
+
+
+
+function isUserValid(uName){
+	if((userName==='aaron@theironyard.com')||(userName==='admin@google.com')){
 		return true;
 	} else{
-		alert("User was not found.");
-	}
-};
-function isPasswordValid(userName,password){
-	if(username==='aaron@theironyard.com' && password==='password123')||(userName==='admin@google.com') && (password==='pandas'){
-		return true;
-	} else{
-		alert("The password you entered is not valid.");
+		return false;
 	}
 };
 
 
-
-
-
-
+function isPasswordValid(uName,password){
+	if(((userName==='aaron@theironyard.com') && (password==='password123'))||((userName==='admin@google.com') && (password==='pandas'))) {
+		return true;
+	} else{
+		alert("The password is not valid.");
+	}
+};
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//I can't get this regex to work or figure out how to get it in my program
+// function isEmail(uName) {
+// 	var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+// 	return pattern.test(uName)
+// };
+// if(!isEmail(userName)){
+// 	alert("Please enter a valid email address before logging in.");
+// }
 
 
 
