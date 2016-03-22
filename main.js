@@ -20,29 +20,30 @@ login.on('submit', function(e){
      //stopping here so i can start contact form
 
 	//empty password (but it was not letting any valid ones through)
-	else if (password==='') {
-	alert("Please enter your password.");
+	else if(password==='') {
+		alert("Please enter your password.")
 	}
-	else if (isUserValid(userName)===true){
-	 	$(location).attr('href','http://www.theironyard.com');
-	}
+	(isUserValid(userName));
+	(isPasswordValid(userName,password));
 });
+
 
 
 
 
 function isUserValid(uName){
 	if((userName==='aaron@theironyard.com')||(userName==='admin@google.com')){
-		return true;
+		return;
 	} else{
-		return false;
+		alert("The username is invalid.");
 	}
 };
 
 
 function isPasswordValid(uName,password){
 	if(((userName==='aaron@theironyard.com') && (password==='password123'))||((userName==='admin@google.com') && (password==='pandas'))) {
-		return true;
+		$(location).attr('href','http://www.theironyard.com');
+		return;
 	} else{
 		alert("The password is not valid.");
 	}
