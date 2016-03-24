@@ -5,19 +5,17 @@ var login = $('.login-form');
 // var tiyUrl = 'http://* theironyard.com';//or
 var userName = $('.username').val();
 var password = $('.password').val();
-var emailPattern = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
+var emailPattern = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$';
 //target form 
 
 
 login.on('submit', function(e){
 	e.preventDefault();
 	//check for empty email field and proper email address. indexOf will not catch "@bob$" or "bob@smith"
-	if((!$('.username').val())||($('.username').val().indexOf('@')===-1)) {
+	if((!$('.username').val())||($('.username').val().indexOf('@')===-1)) {//do i do indexOf(emailPattern)? is that safe or should I put the regex in?
         alert("Please enter a valid email address before logging in.");
-        return;	
+        return;	//got it to work at 8:30a tues! it hates my variables. why?
      }
-      //i get alert anyway no matter what I do. I cannot find my error. and i can't go further.
-     //stopping here so i can start contact form
 
 	//empty password (but it was not letting any valid ones through)
 	else if(password==='') {
