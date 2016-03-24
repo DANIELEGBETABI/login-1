@@ -44,9 +44,12 @@ body {
 	margin: 0 ;
 }
 .subBut {
-	margin:0 10em 0 25.4em;
+
+	margin: 0 auto;
 }
 button{
+	display: block;
+	margin: 0 auto;
 	color: #fff;
 	background-color: #5CA400;
 	height: 2em;
