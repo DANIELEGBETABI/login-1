@@ -1,6 +1,10 @@
 // var userName = $('.username').val();
 // var password = $('.password').val();
 // var emailRegex = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$';
+
+// aaron@theironyard.com / password123
+// admin@google.com / pandas /
+
 var login = $('.login-form');
 // var tiyUrl = 'http://* theironyard.com';//or
 var userName = $('.username').val();
@@ -18,8 +22,9 @@ login.on('submit', function(e){
      }
 
 	//empty password (but it was not letting any valid ones through)
-	else if(password==='') {
+	else if(!$('.password').val()) {
 		alert("Please enter your password.")
+		return;
 	}
 	(isUserValid(userName));
 	(isPasswordValid(userName,password));
@@ -34,6 +39,7 @@ function isUserValid(uName){
 		return;
 	} else{
 		alert("The username is invalid.");
+		return;
 	}
 };
 
@@ -44,6 +50,7 @@ function isPasswordValid(uName,password){
 		return;
 	} else{
 		alert("The password is not valid.");
+		return;
 	}
 };
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
