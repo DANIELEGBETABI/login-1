@@ -12,8 +12,10 @@ var password = $('.password').val();
 var emailPattern = '^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$';
 //target form 
 
+console.log(login);
 
 login.on('submit', function(e){
+	console.log('submit');
 	e.preventDefault();
 	//check for empty email field and proper email address. indexOf will not catch "@bob$" or "bob@smith"
 	if((!$('.username').val())||($('.username').val().indexOf('@')===-1)) {//do i do indexOf(emailPattern)? is that safe or should I put the regex in?
@@ -40,12 +42,13 @@ login.on('submit', function(e){
 	if (!validUser){
 		alert("The username is not valid.");
 		return ;
+	}
 		else {
 		$(location).attr('href','http://www.theironyard.com');
 		}
 	
-	};
 });
+
 
 
 
