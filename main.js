@@ -26,31 +26,50 @@ login.on('submit', function(e){
 		alert("Please enter your password.")
 		return;
 	}
-	(isUserValid(userName));
-	(isPasswordValid(userName,password));
+	// (isUserValid(userName));
+	// (isPasswordValid(userName,password));
 });
 
+const passwordCorrect =isPasswordValid(userName,password);
+const validUser = isUserValid(userName);
 
-
-
-
-function isUserValid(uName){
-	if((userName==='aaron@theironyard.com')||(userName==='admin@google.com')){
-		return;
-	} else{
-		alert("The username is invalid.");
-		return;
+if (!passwordCorrect){
+	alert("The password is not valid.");
+	return false;
+	else{
+		return true;
+	}
+};
+if (!validUser){
+	alert("The username is not valid.");
+	return false;
+	else{
+		return true;
 	}
 };
 
 
-function isPasswordValid(uName,password){
-	if(((userName==='aaron@theironyard.com') && (password==='password123'))||((userName==='admin@google.com') && (password==='pandas'))) {
-		$(location).attr('href','http://www.theironyard.com');
-		return;
+
+
+function isUserValid(user){
+	if(  (userName==='aaron@theironyard.com') || (userName==='admin@google.com')  ){
+		return true;
 	} else{
-		alert("The password is not valid.");
-		return;
+		alert("The username is invalid.");
+		return false;
+	}
+};
+
+
+function isPasswordValid(user,password){
+	if(
+		(  (userName==='aaron@theironyard.com') && (password==='password123')  )||
+		(  (userName==='admin@google.com') && (password==='pandas') )   ) {
+		// $(location).attr('href','http://www.theironyard.com');
+		return true;
+	} else{
+		// alert("The password is not valid.");
+		return false;
 	}
 };
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
