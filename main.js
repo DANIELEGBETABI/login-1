@@ -28,25 +28,26 @@ login.on('submit', function(e){
 	}
 	// (isUserValid(userName));
 	// (isPasswordValid(userName,password));
+
+	const passwordCorrect =isPasswordValid(userName,password);
+	const validUser = isUserValid(userName);
+
+	if (!passwordCorrect){
+		alert("The password is not valid.");
+		return ;
+	
+	};
+	if (!validUser){
+		alert("The username is not valid.");
+		return ;
+		else {
+		$(location).attr('href','http://www.theironyard.com');
+		}
+	
+	};
 });
 
-const passwordCorrect =isPasswordValid(userName,password);
-const validUser = isUserValid(userName);
 
-if (!passwordCorrect){
-	alert("The password is not valid.");
-	return false;
-	else{
-		return true;
-	}
-};
-if (!validUser){
-	alert("The username is not valid.");
-	return false;
-	else{
-		return true;
-	}
-};
 
 
 
